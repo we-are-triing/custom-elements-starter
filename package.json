@@ -1,0 +1,16 @@
+{
+  "name": "custom-elements-starter",
+  "version": "1.0.0",
+  "description": "starter for native web components",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js"
+  },
+  "author": "Colt Pini",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.15.2",
+    "node-fetch": "^1.6.3"
+  },
+  "repository": "https://github.com/LuceStudio/custom-elements-starter.git"
+}
