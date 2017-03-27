@@ -2,12 +2,18 @@ class RootComponent extends HTMLElement {
     constructor(){
         super();
     }
+    connectedCallback() {
+        this.buildShadyCSS();
+    }
+    buildShadyCSS(){
+        typeof ShadyCSS !== 'undefined' && ShadyCSS.styleElement(this);
+    }
     buildShadowRoot(id = '') {
         const templateSelector = `template${id !== '' ? `#${id}` : ``}`;
         const template = RootComponent.ownerDocuments[this.localName].querySelector(templateSelector);
         typeof ShadyCSS !== 'undefined' && ShadyCSS.prepareTemplate(template, this.localName);
         const shadowRoot = this.attachShadow({mode: `open`});
-        
+
         shadowRoot.appendChild(template.content.cloneNode(true), true);
         return shadowRoot;
     }
