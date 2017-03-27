@@ -17,9 +17,9 @@ class BaseTemplate {
                 <link rel="stylesheet" href="/index.css" />
                 <script src="/polyfills/webcomponents-loader.js"></script>
                 ${
-                    this.arrayToString( this.parseElements(body).map( (name) => {
+                    this.parseElements(body).map( (name) => {
                         return `<link rel="import" href="/components/${name}/${name}.html">`;
-                    }))
+                    }).join('')
                 }
             </head>
             <body>
@@ -34,9 +34,9 @@ class BaseTemplate {
                 <site-logo lang="${userData.language}"></site-logo>
                 <site-nav lang="${userData.language}">
                     ${
-                        this.arrayToString(navigation.map(({href, text}) => {
+                        navigation.map(({href, text}) => {
                             return `<nav-item href="${href}">${text}</nav-item>`;
-                        }))
+                        }).join('')
                     }
                 </site-nav>
                 <site-search></site-search>
@@ -49,21 +49,13 @@ class BaseTemplate {
             <site-footer>
                 <footer-nav lang="${userData.lang}">
                     ${
-                        this.arrayToString(navigation.map(({href, text}) => {
+                        navigation.map(({href, text}) => {
                             return `<nav-item href="${href}">${text}</nav-item>`;
-                        }))
+                        }).join('')
                     }
                 </footer-nav>
             </site-footer>
         `;
-    }
-
-    arrayToString(arr){
-        let str = ``;
-        arr.forEach( (item) => {
-            str += item;
-        })
-        return str;
     }
     parseElements(str){
         const reg = /(?:<|is=")\w+?-[\w-]+(?:\s*?|>)/gi;

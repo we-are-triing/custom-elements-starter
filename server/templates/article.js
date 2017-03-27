@@ -10,7 +10,7 @@ class Article extends BaseTemplate {
         this.footer = this.populateFooter({userData: data.userData, navigation: data.footer.navigation});
     }
     populatePage(content){
-        return this.arrayToString(content.map( block => {
+        return content.map( block => {
             switch (block.type) {
                 case "content":
                     return `
@@ -24,7 +24,7 @@ class Article extends BaseTemplate {
                     return ``;
 
             }
-        }));
+        }).join('');
     }
 }
 module.exports = Article;
