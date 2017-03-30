@@ -5,6 +5,12 @@ class Article extends BaseTemplate {
         this.createParts(data);
     }
     createParts(data){
+        this.head.title = `Sample Article Page`;
+        this.head.content = `
+            <meta property="og:title" content="${data.social.title}">
+            <meta property="og:description" content="${data.social.description}">
+            <meta property="og:image" content="${data.social.image}">
+        `;
         this.header = this.populateHeader({userData: data.userData, navigation: data.header.navigation});
         this.page = this.populatePage(data.content);
         this.footer = this.populateFooter({userData: data.userData, navigation: data.footer.navigation});
