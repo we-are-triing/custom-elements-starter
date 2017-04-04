@@ -25,7 +25,7 @@ class BaseTemplate {
                 <script src="/polyfills/webcomponents-loader.js"></script>
                 ${
                     this.parseElements(body).map( (name) => {
-                        return `<link rel="import" href="/components/${name}/${name}.html">`;
+                        return `<link rel="import" href="/elements/${name}/${name}.html">`;
                     }).join('')
                 }
             </head>

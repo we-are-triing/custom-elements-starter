@@ -1,0 +1,18 @@
+<template>
+    <style>
+        :host {
+            color: blue;
+        }
+        span {
+            display: inline-block;
+            height: 1em;
+            width: 1em;
+            border-radius: 50%;
+            background: linear-gradient( 45deg, var(--blue, #88f), var(--red, #f88) );
+        }
+    </style>
+    <span></span>
+    <slot></slot>
+</template>
+<link rel="import" href="/elements/root-element/root-element.html" />
+<script src="./user-area.js"></script>

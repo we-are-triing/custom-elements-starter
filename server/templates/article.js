@@ -1,7 +1,7 @@
 const BaseTemplate = require('./base.js');
 class Article extends BaseTemplate {
     constructor(data){
-        super();
+        super(data);
         this.createParts(data);
     }
     createParts(data){
