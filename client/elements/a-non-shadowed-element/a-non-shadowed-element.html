@@ -1,0 +1,28 @@
+<script>
+    customElements.define('a-non-shadowed-element', class extends HTMLElement {
+        constructor() {
+            super();
+
+            this.clicked = false;
+        }
+
+        connectedCallback() {
+            this.innerHTML = `
+                <div style="background-color:dodgerblue;padding:1em;color:white;">
+                    I'm and element without a shadow DOM.
+                    <button>Click Me</button>
+                    <span id="clicks" />
+                </div>`;
+
+            this.button = this.querySelector('button');
+            this.clicks = this.querySelector('#clicks');
+            this.button.addEventListener('click', this.handleClick.bind(this));
+        }
+
+        handleClick(event) {
+            this.clicks.appendChild(document.createTextNode(this.clicked ? ', clicked' : 'Clicked'));
+
+            this.clicked = true;
+        }
+    });
+</script>

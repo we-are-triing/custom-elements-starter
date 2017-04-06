@@ -1,0 +1,36 @@
+<template>
+    <style>
+        :host {
+            background-color: var(--blue, #88f);
+            color: white;
+            padding: 1em;
+            display: block;
+            margin: 1em 0;
+        }
+
+        #slot {
+            background-color: var(--red, #f88);
+            padding: 1em;
+            color: white;
+        }
+    </style>
+    <h1>Ciao, I have a shadow root.</h1>
+    <div id="slot">
+        <slot></slot>
+    </div>
+</template>
+
+<script>
+    class AShadowedElement extends HTMLElement {
+        constructor() {
+            super();
+            Shadower.attach(this);
+        }
+    };
+
+    customElements.define('a-shadowed-element', AShadowedElement);
+
+    // OR
+
+    // Shadower.define('a-shadowed-element', AShadowedElement);
+</script>

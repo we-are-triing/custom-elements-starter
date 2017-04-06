@@ -1,7 +1,7 @@
-class ContentBlock extends RootElement {
+class ContentBlock extends HTMLElement {
     constructor() {
         super();
-        this.buildShadowRoot();
+        Shadower.attach(this);
     }
 }
-RootElement.registerElement('content-block', ContentBlock);
+customElements.define('content-block', ContentBlock);

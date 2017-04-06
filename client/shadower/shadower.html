@@ -1,0 +1,37 @@
+<script>
+    // Scope everything under the `Shadower` object.
+    const Shadower = {
+        ownerDocuments: {}
+    };
+
+    // A helper function for attaching a shadow root to a custom element using a template.
+    Shadower.attach = (customElement, templateSelector = 'template') => {
+        const ownerDocument = Shadower.ownerDocuments[customElement.localName];
+        const template = Shadower.ownerDocuments[customElement.localName].querySelector(templateSelector);
+        typeof ShadyCSS !== 'undefined' && ShadyCSS.prepareTemplate(template, customElement.localName);
+        customElement.attachShadow({mode: `open`}).appendChild(template.content.cloneNode(true), true);
+    }
+
+    // A polyfill which sets up storage of the correct "ownerDocument" for a custom element which will use a shadow root. This wraps customElements.define but doesn't change any of its internals. Rather, it only stores the ownerDocument and then calls the original customElements.define.
+    Shadower.originalDefine = customElements.define;
+    customElements.define = (name, constructor, options) => {
+        const ownerDocument = typeof HTMLImports !== 'undefined' && !HTMLImports.useNative
+            ? HTMLImports.importForElement(document.currentScript)
+            : document.currentScript.ownerDocument;
+
+        Shadower.ownerDocuments[name] = ownerDocument;
+        return Shadower.originalDefine.call(customElements, name, constructor, options);
+    };
+
+
+    // OR...
+    // Instead of wrapping customElements.define above, we could use our own `define`:
+    Shadower.define = (name, constructor, options) => {
+        const ownerDocument = typeof HTMLImports !== 'undefined' && !HTMLImports.useNative
+            ? HTMLImports.importForElement(document.currentScript)
+            : document.currentScript.ownerDocument;
+
+        Shadower.ownerDocuments[name] = ownerDocument;
+        customElements.define(name, constructor, options);
+    }
+</script>

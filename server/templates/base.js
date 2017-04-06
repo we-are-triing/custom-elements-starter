@@ -6,6 +6,10 @@ class BaseTemplate {
         const body = `
             ${this.header}
             <main>
+                <a-shadowed-element>
+                    <p>I'm in a slot</p>
+                    <a-non-shadowed-element></a-non-shadowed-element>
+                </a-shadowed-element>
                 ${this.page}
             </main>
             ${this.footer}
@@ -23,6 +27,7 @@ class BaseTemplate {
                 ${this.head.content}
                 <link rel="stylesheet" href="/index.css" />
                 <script src="/polyfills/webcomponents-loader.js"></script>
+                <link rel="import" href="/shadower/shadower.html" />
                 ${
                     this.parseElements(body).map( (name) => {
                         return `<link rel="import" href="/elements/${name}/${name}.html">`;
