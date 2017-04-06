@@ -10,6 +10,8 @@
         const template = Shadower.ownerDocuments[customElement.localName].querySelector(templateSelector);
         typeof ShadyCSS !== 'undefined' && ShadyCSS.prepareTemplate(template, customElement.localName);
         customElement.attachShadow({mode: `open`}).appendChild(template.content.cloneNode(true), true);
+        // It appears that the following isn't necessary:
+        // typeof ShadyCSS !== 'undefined' && ShadyCSS.styleElement(this);
     }
 
     // A polyfill which sets up storage of the correct "ownerDocument" for a custom element which will use a shadow root. This wraps customElements.define but doesn't change any of its internals. Rather, it only stores the ownerDocument and then calls the original customElements.define.
