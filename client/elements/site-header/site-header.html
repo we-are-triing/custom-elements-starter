@@ -2,10 +2,99 @@
     <style>
         :host {
             display: block;
-            padding: 0.2em;
+            --bar-height: 2.5em;
+        }
+        .top {
+            height: 6.25em;
+            display: grid;
+            grid-template-columns: 1fr 3fr 1fr;
+            grid-template-areas: "gap logo nav";
+        }
+        .top > a {
+            grid-area: logo;
+            text-align: center;
+        }
+        .top > nav {
+            grid-area: nav;
+        }
+        .top > nav > a {
+            display: block;
+            text-align: right;
+        }
+        .bar {
+            height: var(--bar-height);
+            display: grid;
+            grid-template-columns: calc(var(--bar-height) * 2) 1fr var(--bar-height);
+            grid-template-areas: "alt . search";
+            justify-content: flex-start;
+            align-items: stretch;
+            box-shadow: 0 0 4px var(--black-300t, rgba(0,0,0,0.15));
+        }
+        .search {
+            grid-area: search;
+        }
+        .light-link {
+            grid-area: alt;
+            display: flex;
+            align-items: stretch;
+            justify-content: flex-start;
+            height: var(--bar-height);
+        }
+        .alt-action{
+            display: block;
+            background: var(--blue-500, rgb(52,177,197));
+            color: var(--white, #fff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            height: var(--bar-height);
+            width: var(--bar-height);
+        }
+        light-graphic {
+            height: var(--bar-height);
+            width: var(--bar-height);
+        }
+        graphic {
+            display: block;
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+        }
+        graphic img {
+            width: 100%;
+        }
+        graphic light-graphic {
+            position: absolute;
+
+            height: 500px;
+            width: 500px;
+            top: 0;
+            left: 0;
         }
     </style>
-    <slot></slot>
+    <section class="top">
+        <a href="{link for the correct lanague}">
+            <h1>{Church Name in the correct language}</h1>
+            <lds-logo lang="{lang}"></lds-logo>
+        </a>
+        <nav>
+            <a href="{link for international}">{text for international, language}</a>
+            <a href="{link for my account}">{text for My account}</a>
+        </nav>
+    </section>
+    <section class="bar">
+        <section class="light-link">
+            <a href="{all-action link}" class="alt-action">{HM}</a>
+            <light-graphic position="start" color="rgb(52,177,197)"></light-graphic>
+        </section>
+        <section>
+            <span>{section name}</span>
+            <nav>{main nav}</nav>
+        </section>
+        <section class="search">{search icon}</section>
+    </section>
 </template>
 <link rel="import" href="/elements/root-element/root-element.html" />
+<link rel="import" href="/elements/light-graphic/light-graphic.html" />
 <script src="./site-header.js"></script>

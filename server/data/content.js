@@ -11,7 +11,7 @@ module.exports = [
             type: `media`,
             title: `Vehicula Mollis`,
             caption: `Nullam quis risus eget urna mollis ornare vel eu leo. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`,
-            img: `https://source.unsplash.com/collection/515214/1600x1200`
+            img: `https://source.unsplash.com/collection/515214/800x600`
         },{
             type: `content`,
             content: `
@@ -32,7 +32,7 @@ module.exports = [
             type: `media`,
             title: `Vehicula Mollis`,
             caption: `Nullam quis risus eget urna mollis ornare vel eu leo. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`,
-            img: `https://source.unsplash.com/collection/515214/1600x1200`
+            img: `https://source.unsplash.com/collection/515214/800x600`
         },{
             type: `content`,
             content: `

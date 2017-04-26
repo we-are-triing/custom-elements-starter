@@ -16,6 +16,7 @@ class Article extends BaseTemplate {
         this.footer = this.populateFooter({userData: data.userData, navigation: data.footer.navigation});
     }
     populatePage(content){
+        if(!content){return '';}
         return content.map( block => {
             switch (block.type) {
                 case "content":

@@ -1,0 +1,42 @@
+<template>
+    <style>
+        :host {
+            display: inline-block;
+            height: 100%;
+            --color: var(--blue-500, #006184);
+        }
+        svg {
+            --rotation: 0deg;
+            transform-origin: 50% 50%;
+            transform: rotate(var(--rotation));
+        }
+        stop {
+            stop-color: var(--color);
+        }
+    </style>
+    <div class="lead"></div>
+    <svg viewBox="0 0 85 85" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+            <linearGradient x1="0%" y1="50%" x2="100%" y2="50%" id="sixty-thirty">
+                <stop stop-opacity="0.6" offset="0%"></stop>
+                <stop stop-opacity="0.35" offset="100%"></stop>
+            </linearGradient>
+            <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="sixty-twenty">
+                <stop stop-opacity="0.6" offset="0%"></stop>
+                <stop stop-opacity="0.25" offset="100%"></stop>
+            </linearGradient>
+            <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="thirty-teen">
+                <stop stop-opacity="0.35" offset="0%"></stop>
+                <stop stop-opacity="0.15" offset="100%"></stop>
+            </linearGradient>
+        </defs>
+        <g>
+            <rect fill="url(#sixty-thirty)" x="0" y="0" width="85" height="5.5"></rect>
+            <polygon fill="url(#sixty-twenty)" points="0 0 85 0 0 33"></polygon>
+            <polygon fill="url(#thirty-teen)" points="0 0 0 55 76.5 0"></polygon>
+            <polygon fill="url(#sixty-twenty)" points="0 0 85 0 85 22 0 5.5"></polygon>
+        </g>
+    </svg>
+</template>
+<link rel="import" href="/elements/root-element/root-element.html" />
+<script src="./light-graphic.js"></script>

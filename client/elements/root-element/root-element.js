@@ -15,7 +15,6 @@ class RootElement extends HTMLElement {
     }
     static registerElement(name, constructor, options) {
         const ownerDoc = typeof HTMLImports !== 'undefined' && !HTMLImports.useNative ? HTMLImports.importForElement(document.currentScript) : document.currentScript.ownerDocument;
-        RootElement.ownerDocuments[constructor.name] = ownerDoc;
         RootElement.ownerDocuments[name] = ownerDoc;
         customElements.define(name, constructor, options);
     }
