@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const app = express();
 const Article = require('./templates/article.js');
 const fetch = require('node-fetch');
@@ -36,10 +37,10 @@ const server = app.listen(process.env.PORT || 8080, () => {
 
 const storybook = new Storybook({
     stories: `client/elements/**/*.story.js`,
-    root: '/elements/',
-    app: app,
-    //TODO: this is ugly, phase 1
-    dir: `${__dirname}/../`
+    routeRoot: '/element-storybook/',
+    pathToElements: '/elements/',
+    app,
+    dir: path.join(__dirname,`../`)
 });
 
 // Do not use this to keep the server alive, only to exit the process gracefully. Node domains solve
