@@ -9,7 +9,6 @@ const { Storybook } = require('element-storybook');
 app.use(compression());
 app.use('/static', express.static('client'));
 
-
 const storybook = new Storybook({
     stories: `client/elements/**/*.story.js`,
     storybookRoot: '/element-storybook/',
