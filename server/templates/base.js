@@ -1,6 +1,7 @@
 class BaseTemplate {
     constructor(){
         this.head = {};
+        this.elementList = [];
     }
     render(){
         const body = `
@@ -18,43 +19,47 @@ class BaseTemplate {
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-                <meta property="og:site_name" content="Native Elements Starter">
+                <meta property="og:site_name" content="Placeholder Service">
                 <title>${this.head.title}</title>
                 ${this.head.content}
-                <link rel="stylesheet" href="/index.css" />
-                <script src="/polyfills/webcomponents-loader.js"></script>
+                <link rel="stylesheet" href="/static/index.css" />
+                <script src="/static/polyfills/webcomponents-loader.js"></script>
                 ${
                     this.parseElements(body).map( (name) => {
-                        return `<link rel="import" href="/elements/${name}/${name}.html">`;
+                        return `<link rel="import" href="/static/elements/${name}/${name}.html">`;
                     }).join('')
                 }
             </head>
             <body>
                 ${body}
+                <script src="/static/lib/socket.io.js"></script>
+                <script>
+                    let socket = io('/');
+                    socket.on('reload', () => location.reload());
+                    socket.on('delayed-reload', () => setTimeout(() => location.reload(), 1000 ));
+                </script>
             </body>
         </html>
         `;
     }
-    populateHeader({userData, navigation}){
+    populateHeader({navigation}){
         return `
             <site-header>
-                <site-logo lang="${userData.language}"></site-logo>
-                <site-nav lang="${userData.language}">
+                <site-logo></site-logo>
+                <site-nav>
                     ${
                         navigation.map(({href, text}) => {
                             return `<nav-item href="${href}">${text}</nav-item>`;
                         }).join('')
                     }
                 </site-nav>
-                <site-search></site-search>
-                <user-area>${userData.name}</user-area>
             </site-header>
         `;
     }
-    populateFooter({userData, navigation}){
+    populateFooter({navigation}){
         return `
             <site-footer>
-                <footer-nav lang="${userData.lang}">
+                <footer-nav>
                     ${
                         navigation.map(({href, text}) => {
                             return `<nav-item href="${href}">${text}</nav-item>`;

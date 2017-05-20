@@ -1,5 +1,5 @@
 const BaseTemplate = require('./base.js');
-class Article extends BaseTemplate {
+class Home extends BaseTemplate {
     constructor(data){
         super();
         this.createParts(data);
@@ -18,14 +18,14 @@ class Article extends BaseTemplate {
     populatePage(content){
         return content.map( block => {
             switch (block.type) {
+                case "title":
+                    return `<main-block></main-block>`;
                 case "content":
-                    return `
-                        <content-block>${block.content}</content-block>
-                    `;
-                case "media":
-                    return `
-                        <media-block title="${block.title}" caption="${block.caption}" img="${block.img}"></media-block>
-                    `;
+                    return `<content-block>${block.content}</content-block>`;
+                case "tile":
+                    return ``;
+                case "tile-list":
+                    return ``;
                 default:
                     return ``;
 
@@ -33,4 +33,4 @@ class Article extends BaseTemplate {
         }).join('');
     }
 }
-module.exports = Article;
+module.exports = Home;

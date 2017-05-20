@@ -1,0 +1,32 @@
+<template>
+    <style>
+        :host {
+            display: block;
+            --img: url('https://upload.wikimedia.org/wikipedia/commons/1/14/Rubber_Duck_%288374802487%29.jpg');
+        }
+        * {
+            box-sizing: border-box;
+        }
+        section {
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.3), rgba(0,0,0,0.7)), var(--img) no-repeat 50% 50%;
+            background-size: cover;
+            color: white;
+            text-align: center;
+            padding: 6em 2em;
+        }
+        h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+
+    </style>
+    <section>
+        <h1></h1>
+        <p class="lede"></p>
+        <slot></slot>
+    </section>
+</template>
+<link rel="import" href="../root-element/root-element.html" />
+<script src="./main-block.js"></script>

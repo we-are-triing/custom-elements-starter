@@ -1,0 +1,4 @@
+{
+  "ignore": ["client/**/*[!story].js"],
+  "watch" : ["client","server"]
+}

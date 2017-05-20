@@ -1,16 +1,25 @@
 {
-  "name": "custom-elements-starter",
-  "version": "1.0.0",
-  "description": "starter for native web components",
-  "main": "server/index.js",
-  "scripts": {
-    "start": "node server/index.js"
-  },
-  "author": "Colt Pini",
-  "license": "MIT",
-  "dependencies": {
-    "express": "^4.15.2",
-    "node-fetch": "^1.6.3"
-  },
-  "repository": "https://github.com/LuceStudio/custom-elements-starter.git"
+    "name": "custom-elements-starter",
+    "version": "1.0.0",
+    "description": "starter for native web components",
+    "main": "server/index.js",
+    "repository": "https://github.com/LuceStudio/custom-elements-starter.git",
+    "author": "Colt Pini <coltpini@luce.studio>",
+    "license": "MIT",
+    "scripts": {
+        "start": "node server/index.js",
+        "dev": "NODE_ENV=dev nodemon server/index.js"
+    },
+    "dependencies": {
+        "compression": "^1.6.2",
+
+        "express": "^4.15.2",
+        "node-fetch": "^1.6.3"
+    },
+    "devDependencies": {
+        "chokidar": "^1.7.0",
+        "element-storybook": "^1.0.0-alpha.3",
+        "nodemon": "^1.11.0",
+        "socket.io": "^2.0.1"
+    }
 }

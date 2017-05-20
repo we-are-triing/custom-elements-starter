@@ -1,0 +1,27 @@
+<template>
+    <style>
+        :host {
+            display: block;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        section {
+            text-align: center;
+            padding: 6em 2em;
+        }
+        h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+
+    </style>
+    <section>
+        <h1></h1>
+        <p class="lede"></p>
+        <slot></slot>
+    </section>
+
+</template>
+<link rel="import" href="../root-element/root-element.html" />
+<script src="./title-block.js"></script>
