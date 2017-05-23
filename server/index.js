@@ -37,15 +37,20 @@ if(process.env.NODE_ENV === "dev"){
       persistent: true
     });
 
+    let sockets = [];
     io.on('connection', function (socket) {
         watcher.on('change', path => {
-            console.log(`File ${path} has been changed`)
+            console.info(`client reload from change: ${path}`);
             socket.emit('reload');
         });
-        process.once('SIGUSR2', () => {
+        sockets.push(socket);
+    });
+
+    process.once('SIGUSR2', () => {
+        sockets.forEach((socket) => {
             socket.emit('delayed-reload');
-            process.kill(process.pid, 'SIGUSR2');
         });
+        process.kill(process.pid, 'SIGUSR2');
     });
 }
 
