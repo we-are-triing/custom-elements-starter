@@ -10,12 +10,12 @@ class MainBlock extends RootElement {
     }
 
     static get observedAttributes() {
-        return [`title`,`lede`,`src`];
+        return [`heading`,`lede`,`src`];
     }
 
     attributeChangedCallback(attrName, oldVal, newVal) {
         switch(attrName){
-            case `title`:
+            case `heading`:
                 this.elems.title.innerText = newVal;
                 break;
             case `lede`:
@@ -29,15 +29,15 @@ class MainBlock extends RootElement {
         }
     }
 
-    get title(){
-        return this.getAttribute('title');
+    get heading(){
+        return this.getAttribute('heading');
     }
-    set title(val){
+    set heading(val){
         if(val){
-            this.setAttribute('title', val);
+            this.setAttribute('heading', val);
         }
         else {
-            this.removeAttribute('title');
+            this.removeAttribute('heading');
         }
     }
     get lede(){

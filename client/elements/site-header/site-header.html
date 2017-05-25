@@ -2,10 +2,24 @@
     <style>
         :host {
             display: block;
-            padding: 0.2em;
+        }
+        section {
+            width: 60%;
+            margin: 0 auto;
+            display: grid;
+            align-items: center;
+            grid-gap: 1em;
+            justify-content: center;
+            grid-template-areas: ". . logo . ."
+        }
+        img {
+            grid-area: logo;
+            max-width: 130px;
         }
     </style>
-    <slot></slot>
+    <section>
+        <img />
+    </section>
 </template>
 <link rel="import" href="../root-element/root-element.html" />
 <script src="./site-header.js"></script>

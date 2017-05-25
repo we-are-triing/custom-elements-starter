@@ -39,11 +39,16 @@ if(process.env.NODE_ENV === "dev"){
 
     let sockets = [];
     io.on('connection', function (socket) {
-        watcher.on('change', path => {
-            console.info(`client reload from change: ${path}`);
+        if(!sockets.find(s => s === socket)){
+            sockets.push(socket);
+        }
+    });
+
+    watcher.on('change', path => {
+        console.info(`client reload from change: ${path}`);
+        sockets.forEach((socket) => {
             socket.emit('reload');
         });
-        sockets.push(socket);
     });
 
     process.once('SIGUSR2', () => {

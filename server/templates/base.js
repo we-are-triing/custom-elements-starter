@@ -22,6 +22,7 @@ class BaseTemplate {
                 <meta property="og:site_name" content="Placeholder Service">
                 <title>${this.head.title}</title>
                 ${this.head.content}
+                <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Playfair+Display:400,400i,900,900i" rel="stylesheet">
                 <link rel="stylesheet" href="/static/index.css" />
                 <script src="/static/polyfills/webcomponents-loader.js"></script>
                 ${
