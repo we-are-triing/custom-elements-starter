@@ -1,9 +1,8 @@
 module.exports = {
     navigation: [
-        { href: "/", text: "Item 1"},
-        { href: "/", text: "Item 2"},
-        { href: "/", text: "Item 3"},
-        { href: "/", text: "Item 4"},
-        { href: "/", text: "Item 5"}
+        { href: "/", text: "Home"},
+        { href: "/article/0", text: "Sample 1"},
+        { href: "/article/1", text: "Sample 2"},
+        { href: "#", text: "Dud Link"}
     ]
 };

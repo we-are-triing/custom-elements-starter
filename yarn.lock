@@ -320,15 +320,9 @@ debug@2.6.4:
   dependencies:
     ms "0.7.3"
 
-debug@2.6.7:
+debug@2.6.7, debug@^2.2.0, debug@~2.6.4, debug@~2.6.6:
   version "2.6.7"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.7.tgz#92bad1f6d05bbb6bba22cca88bcd0ec894c2861e"
-  dependencies:
-    ms "2.0.0"
-
-debug@^2.2.0, debug@~2.6.4, debug@~2.6.6:
-  version "2.6.8"
-  resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.8.tgz#e731531ca2ede27d188222427da17821d68ff4fc"
   dependencies:
     ms "2.0.0"
 
@@ -381,9 +375,9 @@ ee-first@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
 
-element-storybook@^1.0.0-alpha.3:
-  version "1.0.0-alpha.4"
-  resolved "https://registry.yarnpkg.com/element-storybook/-/element-storybook-1.0.0-alpha.4.tgz#85e063d2ab5b2d27b9f274e9c7eea19fa79179b9"
+element-storybook@^1.0.0-alpha.5:
+  version "1.0.0-alpha.5"
+  resolved "https://registry.yarnpkg.com/element-storybook/-/element-storybook-1.0.0-alpha.5.tgz#92a7475ee0fa260f2ec0e8638ff2fce2fc18d462"
   dependencies:
     express "^4.15.2"
     glob "^7.1.1"

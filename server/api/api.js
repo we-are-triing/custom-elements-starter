@@ -1,6 +1,5 @@
 const content = require('../data/content.js');
 const header = require('../data/header.js');
-const footer = require('../data/footer.js');
 
 const getData = ({ id, template }) => {
 
@@ -9,7 +8,6 @@ const getData = ({ id, template }) => {
     return {
         navigation: header.navigation,
         content: item.content,
-        footerNavigation: footer.navigation,
         title: item.meta.title,
         description: item.meta.description,
         socialImage: item.meta.image

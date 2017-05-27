@@ -1,12 +1,19 @@
 :root{
     --sans: 'Open Sans', helvetica, sans-serif;
     --serif: 'Playfair Display', Times, serif;
-    --highlight: RGBA(0, 69, 99, 1.00);
-    --highlight-trans: RGBA(0, 69, 99, 0.7);
 
-    --lh-100: 1.2;
+    --main: RGBA(0, 69, 99, 1.00);
+    --main-trans: RGBA(0, 69, 99, 0.7);
+
+    --highlight: #69f;
+    --link-color: var(--highlight);
+    --link-color-hover: var(--highlight);
+
+    --lh-100: 1.1;
     --lh-200: 1.4;
     --lh-300: 1.6;
+
+    --font-size-500: 1.125em;
 }
 
 html, body {
@@ -22,9 +29,18 @@ main {
 body {
     font-family: var(--sans);
     font-weight: 300;
-    line-height: var(--lh-tight);
+    line-height: var(--lh-100);
+    font-size: var(--font-size-500);
+    display: none;
 }
-
+/* You may want to implament a different strategy here, if there is an error somewhere and you get the event your content will not display, but this is a demo afterall. */
+body.WebComponentsReady {
+    display: block;
+}
+main-block {
+    margin-left: -5em;
+    width: calc(100% + 10em);
+}
 button {
     display: inline-block;
     border: none;
@@ -38,4 +54,11 @@ button {
     text-transform: uppercase;
     letter-spacing: 0.1em;
     cursor: pointer;
+}
+
+h2 {
+    margin-bottom: 0;
+}
+h2 + p {
+    margin-top: 0;
 }

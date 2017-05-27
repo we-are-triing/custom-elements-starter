@@ -2,26 +2,31 @@
     <style>
         :host {
             display: block;
+            --lede-lh: var(--lh-300, 1.6);
         }
         * {
             box-sizing: border-box;
         }
         section {
             text-align: center;
-            padding: 6em 2em;
+            padding: 6em 2em 3em;
         }
         h1 {
             font-size: 3em;
             margin: 0;
+        }
+        .lede {
+            max-width: 70%;
+            margin: 2em auto;
+            font-size: 0.8em;
+            line-height: var(--lede-lh);
         }
 
     </style>
     <section>
         <h1></h1>
         <p class="lede"></p>
-        <slot></slot>
     </section>
-
 </template>
 <link rel="import" href="../root-element/root-element.html" />
 <script src="./title-block.js"></script>

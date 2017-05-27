@@ -30,43 +30,50 @@ class BaseTemplate {
                         return `<link rel="import" href="/static/elements/${name}/${name}.html">`;
                     }).join('')
                 }
+                <script src="/stiva.js"></script>
+                <script>
+                    let stiva = new Stiva(${JSON.stringify(this.stiva)});
+                    window.addEventListener('WebComponentsReady', e => {
+                        // want to get it off the thread so all other handlers can run;
+                        setTimeout(() => stiva.dispatchAll(), 300);
+                        document.body.classList.add('WebComponentsReady');
+                    });
+                </script>
             </head>
             <body>
                 ${body}
-                <script src="/static/lib/socket.io.js"></script>
-                <script>
-                    let socket = io('/');
-                    socket.on('reload', () => location.reload());
-                    socket.on('delayed-reload', () => setTimeout(() => location.reload(), 1000 ));
-                </script>
+                ${
+                    process.env.NODE_ENV === "dev" ? `   <script src="/static/lib/socket.io.js"></script>
+                                <script>
+                                    let socket = io('/');
+                                    socket.on('reload', () => document.querySelector('element-display').reload());
+                                    socket.on('delayed-reload', () => setTimeout(() => location.reload(), 1000 ));
+                                </script>
+                            ` : ``
+                }
             </body>
         </html>
         `;
     }
     populateHeader({navigation}){
         return `
-            <site-header>
-                <site-logo></site-logo>
-                <site-nav>
-                    ${
-                        navigation.map(({href, text}) => {
-                            return `<nav-item href="${href}">${text}</nav-item>`;
-                        }).join('')
-                    }
-                </site-nav>
+            <site-header logo="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Rubber_Duck_%288374802487%29.jpg/220px-Rubber_Duck_%288374802487%29.jpg">
+                ${
+                    navigation.map(({href, text}) => {
+                        return `<nav-item href="${href}">${text}</nav-item>`;
+                    }).join('')
+                }
             </site-header>
         `;
     }
     populateFooter({navigation}){
         return `
             <site-footer>
-                <footer-nav>
-                    ${
-                        navigation.map(({href, text}) => {
-                            return `<nav-item href="${href}">${text}</nav-item>`;
-                        }).join('')
-                    }
-                </footer-nav>
+                ${
+                    navigation.map(({href, text}) => {
+                        return `<nav-item href="${href}">${text}</nav-item>`;
+                    }).join('')
+                }
             </site-footer>
         `;
     }

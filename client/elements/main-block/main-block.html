@@ -3,6 +3,7 @@
         :host {
             display: block;
             --img: url('https://upload.wikimedia.org/wikipedia/commons/1/14/Rubber_Duck_%288374802487%29.jpg');
+            --title-lh: var(--lh-100, 1.1);
         }
         * {
             box-sizing: border-box;
@@ -10,7 +11,7 @@
         section {
             height: 100%;
             width: 100%;
-            background: linear-gradient(to top, var(--highlight-trans), var(--highlight-trans)), var(--img) no-repeat 50% 50%;
+            background: linear-gradient(to top, var(--main-trans), var(--main-trans)), var(--img) no-repeat 50% 50%;
             background-size: cover;
             color: white;
             text-align: center;
@@ -25,11 +26,12 @@
             margin: 0;
             font-family: var(--serif);
             font-weight: 300;
+            line-height: var(--title-lh);
         }
         .lede {
             font-weight: 300;
             line-height: var(--lh-200);
-            margin:0 0 2.8em 0;
+            margin:1em 0 2.8em 0;
         }
     </style>
     <section>

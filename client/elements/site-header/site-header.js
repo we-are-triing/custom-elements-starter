@@ -4,7 +4,7 @@ class SiteHeader extends RootElement {
         this.buildShadowRoot();
         this.elems = {
             logo: this.shadowRoot.querySelector('img'),
-            container: this.shadowRoot.querySelector('section')
+            container: this.shadowRoot.querySelector('.nav-container')
         }
         this.observer = this.watchChildren();
         this.updateChildren();
@@ -82,6 +82,17 @@ class SiteHeader extends RootElement {
         }
         else {
             this.removeAttribute('pinned');
+        }
+    }
+    get overlay(){
+        return this.getAttribute('overlay');
+    }
+    set overlay(val){
+        if(val){
+            this.setAttribute('overlay', val);
+        }
+        else {
+            this.removeAttribute('overlay');
         }
     }
 }

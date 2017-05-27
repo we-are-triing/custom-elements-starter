@@ -2,6 +2,18 @@
     <style>
         :host {
             color: blue;
+            --color: var(--link-color, inherit);
+            --color-hover: var(--link-color-hover, inherit);
+            --underline: var(--highlight, transparent);
+        }
+        a {
+            color: var(--color);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+        }
+        a:hover {
+            color: var(--color-hover);
+            border-bottom: 1px solid var(--underline);
         }
     </style>
     <a href=""><slot></slot></a>

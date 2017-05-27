@@ -1,7 +1,6 @@
 class SiteFooter extends RootElement {
     constructor() {
         super();
-
         this.buildShadowRoot();
     }
 }

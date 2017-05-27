@@ -7,9 +7,14 @@ module.exports = {
         },
         content: [
             {
+                type: `title`,
+                title: `The awesome Homepage!!`,
+                lede: `Sample Lede, Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus.`,
+                img: `https://upload.wikimedia.org/wikipedia/commons/1/14/Rubber_Duck_%288374802487%29.jpg`
+            },{
                 type: `content`,
                 content: `
-                    <h2>Content 1: Sem Consectetur Ipsum</h2>
+                    <h2>Dud homepage content</h2>
                     <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Maecenas faucibus mollis interdum. Curabitur blandit tempus porttitor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
                     <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auctor fringilla. Maecenas faucibus mollis interdum. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
                 `
@@ -35,6 +40,10 @@ module.exports = {
         },
         content: [
             {
+                type: `title`,
+                title: `The awesome Content Page 1!!`,
+                lede: `Sample Lede, Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus.`
+            },{
                 type: `content`,
                 content: `
                     <h2>First Article: This is the first article</h2>
@@ -62,6 +71,10 @@ module.exports = {
         },
         content: [
             {
+                type: `title`,
+                title: `The awesome Content Page 2!!`,
+                lede: `Sample Lede, Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus.`
+            },{
                 type: `content`,
                 content: `
                     <h2>Second Article: This is the Second Sample article</h2>

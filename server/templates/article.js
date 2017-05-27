@@ -18,6 +18,10 @@ class Article extends BaseTemplate {
     populatePage(content){
         return content.map( block => {
             switch (block.type) {
+                case "title":
+                    return `
+                        <title-block heading="${block.title}" lede="${block.lede}"></title-block>
+                    `;
                 case "content":
                     return `
                         <content-block>${block.content}</content-block>

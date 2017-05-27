@@ -19,7 +19,7 @@ class Home extends BaseTemplate {
         return content.map( block => {
             switch (block.type) {
                 case "title":
-                    return `<main-block></main-block>`;
+                    return `<main-block heading="${block.title}" lede="${block.lede}" img="${block.img}" ></main-block>`;
                 case "content":
                     return `<content-block>${block.content}</content-block>`;
                 case "tile":
