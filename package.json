@@ -11,6 +11,7 @@
         "dev": "NODE_ENV=dev nodemon --inspect server/index.js"
     },
     "dependencies": {
+        "@webcomponents/webcomponentsjs": "^1.0.1",
         "compression": "^1.6.2",
         "express": "^4.15.2",
         "node-fetch": "^1.6.3",

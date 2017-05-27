@@ -8,6 +8,7 @@ const { Storybook } = require('element-storybook');
 
 app.use(compression());
 app.use('/static', express.static('client'));
+app.use('/static/polyfills/', express.static( path.join(require.resolve('@webcomponents/webcomponentsjs'), '../') ));
 app.use('/stiva.js', express.static( require.resolve('stiva') ));
 
 const storybook = new Storybook({
