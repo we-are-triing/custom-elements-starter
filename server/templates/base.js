@@ -46,7 +46,7 @@ class BaseTemplate {
                     process.env.NODE_ENV === "dev" ? `   <script src="/static/lib/socket.io.js"></script>
                                 <script>
                                     let socket = io('/');
-                                    socket.on('reload', () => document.querySelector('element-display').reload());
+                                    socket.on('reload', () => location.reload());
                                     socket.on('delayed-reload', () => setTimeout(() => location.reload(), 1000 ));
                                 </script>
                             ` : ``

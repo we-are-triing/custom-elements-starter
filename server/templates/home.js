@@ -22,10 +22,19 @@ class Home extends BaseTemplate {
                     return `<main-block heading="${block.title}" lede="${block.lede}" img="${block.img}" ></main-block>`;
                 case "content":
                     return `<content-block>${block.content}</content-block>`;
-                case "tile":
-                    return ``;
-                case "tile-list":
-                    return ``;
+                case "tabs":
+
+                    return `<tabbed-content>
+                                ${block.content.reduce( (a,n,i) => {
+                                    if(i === 0){ this.stiva = {active: {active: n.tab} };}
+                                    return `${a}<tab-panel tabtitle="${n.tab}">${n.content}</tab-panel>`
+                                }, '')}
+                            </tabbed-content>
+                            `;
+                case "media":
+                    return `
+                        <media-block title="${block.title}" caption="${block.caption}" img="${block.img}"></media-block>
+                    `;
                 default:
                     return ``;
 

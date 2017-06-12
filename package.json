@@ -1,6 +1,6 @@
 {
     "name": "custom-elements-starter",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "starter for native web components",
     "main": "server/index.js",
     "repository": "https://github.com/LuceStudio/custom-elements-starter.git",
@@ -19,7 +19,7 @@
     },
     "devDependencies": {
         "chokidar": "^1.7.0",
-        "element-storybook": "^1.0.0-alpha.5",
+        "element-storybook": "^1.0.0-alpha.7",
         "nodemon": "^1.11.0",
         "socket.io": "^2.0.1"
     }
