@@ -31,12 +31,8 @@ body {
     font-weight: 300;
     line-height: var(--lh-100);
     font-size: var(--font-size-500);
-    display: none;
 }
-/* You may want to implament a different strategy here, if there is an error somewhere and you get the event your content will not display, but this is a demo afterall. */
-body.WebComponentsReady {
-    display: block;
-}
+
 main-block {
     margin-left: -5em;
     width: calc(100% + 10em);
