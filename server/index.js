@@ -16,6 +16,7 @@ const storybook = new Storybook({
     storybookRoot: '/element-storybook/',
     pathToElements: '/static/elements/',
     pathToPolyfills: '/static/polyfills/',
+    moduleType: 'js',
     app,
     dir: path.join(__dirname,`../`),
     stylesheet: `/static/index.css`,
@@ -61,8 +62,8 @@ if(process.env.NODE_ENV === "dev"){
     });
 }
 
-server.listen(process.env.PORT || 8080, () => {
-	console.info(`Native Elements Starter App listening on port ${process.env.PORT || 8080}`);
+server.listen(process.env.PORT || 8000, () => {
+	console.info(`Native Elements Starter App listening on port ${process.env.PORT || 8000}`);
 });
 
 // Do not use this to keep the server alive, only to exit the process gracefully. Node domains solve

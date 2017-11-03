@@ -1,3 +1,4 @@
+// This is only needed if you are using HTML imports
 class RootElement extends HTMLElement {
     constructor(){
         super();
