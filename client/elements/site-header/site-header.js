@@ -1,7 +1,56 @@
-class SiteHeader extends RootElement {
+import buildShadowRoot from '../buildShadowRoot.js';
+class SiteHeader extends HTMLElement {
     constructor() {
         super();
-        this.buildShadowRoot();
+        const html = `
+          <style>
+              :host {
+                  display: block;
+                  --header-bg: var(--main, RGBA(0, 69, 99, 1));
+                  --header-bg-trans: var(--main-trans, RGBA(0, 69, 99, 0.7));
+                  --active: var(--highlight);
+              }
+              section {
+                  width: 100%;
+                  padding: 1.5em;
+                  background: var(--header-bg);
+                  box-sizing: border-box;
+              }
+              .nav-container {
+                  width: 60%;
+                  margin: 0 auto;
+                  display: grid;
+                  align-items: center;
+                  grid-gap: 1em;
+                  justify-content: center;
+                  grid-template-areas: ". . logo . .";
+              }
+              :host([pinned]) section{
+                  position: fixed;
+              }
+              :host([overlay]) section{
+                  position: absolute;
+              }
+              :host([overlay]) section, :host([pinned]) section{
+                  left: 50%;
+                  transform: translateX(-50%);
+                  background: var(--header-bg-trans);
+              }
+              img {
+                  grid-area: logo;
+                  max-width: 130px;
+              }
+              nav-item {
+                  color: white;
+              }
+          </style>
+          <section>
+              <div class="nav-container">
+                  <img />
+              </div>
+          </section>
+        `;
+				buildShadowRoot(html,this);
         this.elems = {
             logo: this.shadowRoot.querySelector('img'),
             container: this.shadowRoot.querySelector('.nav-container')
@@ -96,4 +145,5 @@ class SiteHeader extends RootElement {
         }
     }
 }
-RootElement.registerElement('site-header', SiteHeader);
+customElements.define('site-header', SiteHeader);
+export default SiteHeader;

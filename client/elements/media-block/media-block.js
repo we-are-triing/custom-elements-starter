@@ -1,7 +1,36 @@
-class MediaBlock extends RootElement {
+import buildShadowRoot from '../buildShadowRoot.js';
+class MediaBlock extends HTMLElement {
     constructor() {
         super();
-        this.buildShadowRoot();
+        const html = `
+                        <style>
+                            :host {
+                                display: block;
+                                width: 100%;
+                                margin: 4em 0 8em;
+                                --lh: var(--lh-200, 1.4em);
+                            }
+                            figure {
+                                max-width: 56em;
+                                margin: 0 auto;
+                            }
+                            img {
+                                width: 100%;
+                            }
+                            figcaption {
+                                font-size: 0.8em;
+                                line-height: var(--lh);
+                            }
+                        </style>
+                        <figure>
+                            <img class="posterframe" src="" />
+                            <figcaption>
+                                <b></b>
+                                <div></div>
+                            </figcaption>
+                        </figure>
+                      `;
+				buildShadowRoot(html,this);
         this.titleElement = this.shadowRoot.querySelector('figcaption b');
         this.captionElement = this.shadowRoot.querySelector('figcaption div');
         this.imgElement = this.shadowRoot.querySelector('img');
@@ -60,4 +89,5 @@ class MediaBlock extends RootElement {
 
 }
 
-RootElement.registerElement('media-block', MediaBlock);
+customElements.define('media-block', MediaBlock);
+export default MediaBlock;
