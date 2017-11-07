@@ -27,7 +27,7 @@ class BaseTemplate {
                 <script src="/static/polyfills/webcomponents-loader.js"></script>
                 ${
                     this.parseElements(body).map( (name) => {
-                        return `<link rel="import" href="/static/elements/${name}/${name}.html">`;
+                        return `<script type="module" src="/static/elements/${name}/${name}.js"></script>`;
                     }).join('')
                 }
                 <script src="/stiva.js"></script>

@@ -2,7 +2,7 @@ const Home = require('../templates/home.js');
 const Article = require('../templates/article.js');
 const fetch = require('node-fetch');
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 8000;
 module.exports = (app) => {
     app.get('/', (req, res) => {
         fetch(`http://localhost:${port}/api/home/`)
@@ -10,7 +10,7 @@ module.exports = (app) => {
         .then( json => {
             let home = new Home(json);
             res.send(home.render());
-        });
+        }).catch( err => console.log(`didn't work`, err));
 
     });
 
@@ -21,6 +21,6 @@ module.exports = (app) => {
         .then( json => {
             const article = new Article(json);
             res.send(article.render());
-        });
+        }).catch( err => console.log(`didn't work`, err));
     });
 };
