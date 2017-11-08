@@ -1,9 +1,9 @@
-const Home = require('../templates/home.js');
-const Article = require('../templates/article.js');
-const fetch = require('node-fetch');
+import Home from '../templates/home.mjs';
+import Article from '../templates/article.mjs';
+import fetch from 'node-fetch';
 
 const port = process.env.PORT || 8000;
-module.exports = (app) => {
+export default (app) => {
     app.get('/', (req, res) => {
         fetch(`http://localhost:${port}/api/home/`)
         .then( response => response.json() )

@@ -1,15 +1,28 @@
-const express = require('express');
-const app = express();
-const server = require('http').Server(app);
-const compression = require('compression');
-const path = require('path');
+import express from 'express';
+import http from 'http';
+import compression from 'compression';
+import url from 'url';
+import path from 'path';
+import api from './api/api.mjs';
+import routes from './routes/routes.mjs';
+import chokidar from 'chokidar';
+import socketio from 'socket.io';
+import ES from 'element-storybook';
 
-const { Storybook } = require('element-storybook');
+const Storybook = ES.Storybook;
+
+const app = express();
+const server = http.Server(app);
+
+const cwd = process.cwd();
+
+const polyfillsURL = path.join(cwd, `node_modules/@webcomponents/webcomponentsjs/webcomponents-lite.js`); //require.resolve('@webcomponents/webcomponentsjs');
+const stivaURL = path.join(cwd,`node_modules/stiva/stiva.js`); //require.resolve('stiva');
 
 app.use(compression());
 app.use('/static', express.static('client'));
-app.use('/static/polyfills/', express.static( path.join(require.resolve('@webcomponents/webcomponentsjs'), '../') ));
-app.use('/stiva.js', express.static( require.resolve('stiva') ));
+app.use('/static/polyfills/', express.static( path.join(polyfillsURL, '../') ));
+app.use('/stiva.js', express.static( stivaURL ));
 
 const storybook = new Storybook({
     stories: `client/elements/**/*.story.js`,
@@ -18,7 +31,7 @@ const storybook = new Storybook({
     pathToPolyfills: '/static/polyfills/',
     moduleType: 'js',
     app,
-    dir: path.join(__dirname,`../`),
+    dir: cwd,
     stylesheet: `/static/index.css`,
     inject: process.env.NODE_ENV === "dev" ? `   <script src="/static/lib/socket.io.js"></script>
                 <script>
@@ -29,12 +42,11 @@ const storybook = new Storybook({
             ` : ``
 });
 
-require('./api/api.js')(app);
-require('./routes/routes.js')(app);
+api(app);
+routes(app);
 
 if(process.env.NODE_ENV === "dev"){
-    const chokidar = require('chokidar');
-    const io = require('socket.io')(server);
+    const io = socketio(server);
     var watcher = chokidar.watch(['client/**/!(*.story).*'], {
       ignored: /(^|[\/\\])\../,
       persistent: true
