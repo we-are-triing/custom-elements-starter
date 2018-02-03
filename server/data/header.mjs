@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     navigation: [
         { href: "/", text: "Home"},
         { href: "/article/0", text: "Sample 1"},

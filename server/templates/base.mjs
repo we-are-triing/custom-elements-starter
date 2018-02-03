@@ -1,4 +1,4 @@
-class BaseTemplate {
+export default class BaseTemplate {
     constructor(){
         this.head = {};
         this.elementList = [];
@@ -27,12 +27,12 @@ class BaseTemplate {
                 <script src="/static/polyfills/webcomponents-loader.js"></script>
                 ${
                     this.parseElements(body).map( (name) => {
-                        return `<link rel="import" href="/static/elements/${name}/${name}.html">`;
+                        return `<script type="module" src="/static/elements/${name}/${name}.js"></script>`;
                     }).join('')
                 }
                 <script src="/stiva.js"></script>
                 <script>
-                    let stiva = new Stiva(${JSON.stringify(this.stiva)});
+                    stiva = new Stiva(${JSON.stringify(this.stiva)});
                     window.addEventListener('WebComponentsReady', e => {
                         // want to get it off the thread so all other handlers can run;
                         setTimeout(() => stiva.dispatchAll(), 300);
@@ -82,4 +82,3 @@ class BaseTemplate {
         return [...new Set(str.match(reg).map( (s) => s.replace(/^(<|is=")/gi,'') ))]
     }
 }
-module.exports = BaseTemplate;

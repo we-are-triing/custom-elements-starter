@@ -1,5 +1,6 @@
-const BaseTemplate = require('./base.js');
-class Home extends BaseTemplate {
+import BaseTemplate from './base.mjs';
+
+export default class Home extends BaseTemplate {
     constructor(data){
         super();
         this.createParts(data);
@@ -42,4 +43,3 @@ class Home extends BaseTemplate {
         }).join('');
     }
 }
-module.exports = Home;

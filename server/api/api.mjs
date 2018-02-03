@@ -1,5 +1,5 @@
-const content = require('../data/content.js');
-const header = require('../data/header.js');
+import content from '../data/content.mjs';
+import header from '../data/header.mjs';
 
 const getData = ({ id, template }) => {
 
@@ -16,7 +16,7 @@ const getData = ({ id, template }) => {
 };
 
 
-module.exports = (app) => {
+export default (app) => {
     app.get('/api/article/:id', (req, res) => {
         const id = req.params.id === '1' ? 1 : 0;
         res.send(getData({

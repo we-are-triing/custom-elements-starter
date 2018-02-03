@@ -1,7 +1,21 @@
-class TabPanel extends RootElement {
+import buildShadowRoot from '../buildShadowRoot.js';
+class TabPanel extends HTMLElement {
     constructor() {
         super();
-        this.buildShadowRoot();
+        const html = `
+          <style>
+              :host {
+
+              }
+              section {
+                  padding: 1em;
+              }
+          </style>
+          <section>
+              <slot></slot>
+          </section>
+        `;
+				buildShadowRoot(html,this);
     }
     get tabtitle(){
         return this.getAttribute('tabtitle');
@@ -15,4 +29,5 @@ class TabPanel extends RootElement {
         }
     }
 }
-RootElement.registerElement('tab-panel', TabPanel);
+customElements.define('tab-panel', TabPanel);
+export default TabPanel;

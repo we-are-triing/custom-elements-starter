@@ -1,7 +1,49 @@
-class TabbedContent extends RootElement {
+import buildShadowRoot from '../buildShadowRoot.js';
+class TabbedContent extends HTMLElement {
     constructor() {
         super();
-        this.buildShadowRoot();
+        const html = `
+          <style>
+              :host {
+                  display: block;
+                  --border: #eee;
+                  --main: #eee;
+                  margin: 6em 0 4em;
+                  --lh: var(--lh-300, 1.6em);
+              }
+              section {
+                  max-width: 46em;
+                  margin: 0 auto;
+                  line-height: var(--lh);
+              }
+              tab-panel{
+                  display: none;
+              }
+              tab-panel.active{
+                  display: block;
+              }
+              .tabs {
+                  border-bottom: 1px solid var(--border);
+              }
+              .tab {
+                  display: inline-block;
+                  padding: 0.3em 0.6em;
+                  cursor: pointer;
+                  background: var(--main);
+                  border: 1px solid var(--border);
+                  position:relative;
+                  top: 1px;
+                  font-size: 0.8em;
+              }
+              .tab.active {
+                  background: white;
+                  border-bottom-color: white;
+              }
+          </style>
+          <section class="tabs"></section>
+          <section class="content"></section>
+        `;
+				buildShadowRoot(html,this);
         this.elems = {
             tabs: this.shadowRoot.querySelector('.tabs'),
             panels: this.shadowRoot.querySelector('.content')
@@ -38,4 +80,5 @@ class TabbedContent extends RootElement {
         }
     }
 }
-RootElement.registerElement('tabbed-content', TabbedContent);
+customElements.define('tabbed-content', TabbedContent);
+export default TabbedContent;

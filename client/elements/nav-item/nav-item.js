@@ -1,7 +1,28 @@
-class NavItem extends RootElement {
+import buildShadowRoot from '../buildShadowRoot.js';
+class NavItem extends HTMLElement {
     constructor() {
         super();
-        this.buildShadowRoot();
+        const html = `
+                        <style>
+                            :host {
+                                color: blue;
+                                --color: var(--link-color, inherit);
+                                --color-hover: var(--link-color-hover, inherit);
+                                --underline: var(--highlight, transparent);
+                            }
+                            a {
+                                color: var(--color);
+                                text-decoration: none;
+                                border-bottom: 1px solid transparent;
+                            }
+                            a:hover {
+                                color: var(--color-hover);
+                                border-bottom: 1px solid var(--underline);
+                            }
+                        </style>
+                        <a href=""><slot></slot></a>
+                      `;
+				buildShadowRoot(html,this);
         this.link = this.shadowRoot.querySelector('a');
     }
 
@@ -27,4 +48,5 @@ class NavItem extends RootElement {
     }
 }
 
-RootElement.registerElement('nav-item', NavItem);
+customElements.define('nav-item', NavItem);
+export default NavItem;

@@ -7,8 +7,8 @@
     "author": "Colt Pini <coltpini@luce.studio>",
     "license": "MIT",
     "scripts": {
-        "start": "node server/index.js",
-        "dev": "NODE_ENV=dev nodemon --inspect server/index.js"
+        "start": "node --experimental-modules server/index.mjs",
+        "dev": "NODE_ENV=dev nodemon --inspect --experimental-modules server/index.mjs"
     },
     "dependencies": {
         "@webcomponents/webcomponentsjs": "^1.0.1",
