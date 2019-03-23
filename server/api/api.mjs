@@ -16,15 +16,21 @@ const getData = ({ id, template }) => {
 };
 
 
-export default (app) => {
-    app.get('/api/article/:id', (req, res) => {
-        const id = req.params.id === '1' ? 1 : 0;
-        res.send(getData({
-            id,
-            template: 'article'
-        }));
+export default server => {
+
+    server.route({
+        method: `GET`,
+        path:`/api/article/{id}`,
+        handler: (req,h) => {
+            const id = req.params.id === '1' ? 1 : 0;
+            return getData({id,template: 'article'});    
+        }
     });
-    app.get('/api/home/', (req, res) => {
-        res.send(getData({id: 0, template: 'home'}));
+
+    server.route({
+        method: `GET`,
+        path:`/api/home`,
+        handler: (req,h) => getData({id: 0, template: 'home'})
     });
+
 };
