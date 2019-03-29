@@ -4,6 +4,8 @@ import routes from './routes/routes.mjs';
 import chokidar from 'chokidar';
 import socketio from 'socket.io';
 import Inert from 'inert';
+
+//Keeping these in as a reference to support http2
 // import http2 from 'http2';
 // import {readFileSync} from 'fs';
 
@@ -33,7 +35,7 @@ process.on('unhandledRejection', (err) => {
 });
 
 if(process.env.NODE_ENV === "dev"){
-    const io = socketio(server);
+    const io = socketio(server.listener);
     var watcher = chokidar.watch(['client/**/*.*'], {
       ignored: /(^|[\/\\])\../,
       persistent: true
