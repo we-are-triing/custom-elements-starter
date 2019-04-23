@@ -1,5 +1,5 @@
-import content from '../data/content.mjs';
-import header from '../data/header.mjs';
+import content from '../data/content.js';
+import header from '../data/header.js';
 
 const getData = ({ id, template }) => {
 

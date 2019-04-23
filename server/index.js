@@ -1,9 +1,9 @@
-import Hapi from 'hapi';
-import api from './api/api.mjs';
-import routes from './routes/routes.mjs';
+import api from './api/api.js';
 import chokidar from 'chokidar';
+import Hapi from '@hapi/hapi';
+import Inert from '@hapi/inert';
+import routes from './routes/routes.js';
 import socketio from 'socket.io';
-import Inert from 'inert';
 
 //Keeping these in as a reference to support http2
 // import http2 from 'http2';
@@ -27,7 +27,7 @@ const init = async () => {
     routes(server);
     await server.start();
     console.log(`Server running at: ${server.info.uri}`)
-}
+};
 
 process.on('unhandledRejection', (err) => {
     console.log(err);

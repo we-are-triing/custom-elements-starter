@@ -1,4 +1,4 @@
-import buildShadowRoot from '../buildShadowRoot.js';
+import buildShadowRoot from './buildShadowRoot.js';
 class SiteHeader extends HTMLElement {
     constructor() {
         super();

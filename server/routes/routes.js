@@ -1,8 +1,8 @@
-import Home from '../templates/home.mjs';
-import Article from '../templates/article.mjs';
+import Home from '../templates/home.js';
+import Article from '../templates/article.js';
 import fetch from 'node-fetch';
-import require from './require.js';
-import path from 'path';
+import {join} from 'path';
+import require from './require.cjs';
 
 const port = process.env.PORT || 8000;
 export default server => {
@@ -25,7 +25,7 @@ export default server => {
         path: `/static/polyfills/{param*}`,
         handler: {
             directory: {
-                path: path.join(polyfillsURL, '../')
+                path: join(polyfillsURL, '../')
             }
         }
     });
