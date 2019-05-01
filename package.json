@@ -1,29 +1,29 @@
 {
-    "name": "custom-elements-starter",
-    "version": "2.0.0",
-    "description": "starter for native web components",
-    "main": "server/index.js",
-    "repository": "https://github.com/LuceStudio/custom-elements-starter.git",
-    "author": "Colt Pini <coltpini@luce.studio>",
-    "license": "MIT",
-    "type": "module",
-    "engines": {
-        "node": "~12.0.0"
-    },
-    "scripts": {
-        "start": "node --experimental-modules server/index.js",
-        "dev": "NODE_ENV=dev nodemon --inspect --experimental-modules server/index.js"
-    },
-    "dependencies": {
-        "@hapi/hapi": "^18.3.1",
-        "@hapi/inert": "^5.2.0",
-        "@webcomponents/webcomponentsjs": "^2.2.7",
-        "node-fetch": "^2.3.0",
-        "stiva": "^1.0.1"
-    },
-    "devDependencies": {
-        "chokidar": "^2.1.4",
-        "nodemon": "^1.18.10",
-        "socket.io": "^2.2.0"
-    }
+  "name": "custom-elements-starter",
+  "version": "2.0.0",
+  "description": "starter for native web components",
+  "main": "server/index.js",
+  "repository": "https://github.com/LuceStudio/custom-elements-starter.git",
+  "author": "Colt Pini <coltpini@luce.studio>",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": "~12.0.0"
+  },
+  "scripts": {
+    "start": "node --experimental-modules server/index.js",
+    "dev": "NODE_ENV=dev nodemon --inspect --experimental-modules server/index.js"
+  },
+  "dependencies": {
+    "@hapi/hapi": "^18.3.1",
+    "@hapi/inert": "^5.2.0",
+    "@webcomponents/webcomponentsjs": "^2.2.10",
+    "node-fetch": "^2.4.1",
+    "stiva": "^1.0.1"
+  },
+  "devDependencies": {
+    "chokidar": "^3.0.0",
+    "nodemon": "^1.18.11",
+    "socket.io": "^2.2.0"
+  }
 }

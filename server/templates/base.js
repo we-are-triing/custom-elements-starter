@@ -47,7 +47,7 @@ export default class BaseTemplate {
                                 <script>
                                     let socket = io('/');
                                     socket.on('reload', () => location.reload());
-                                    socket.on('delayed-reload', () => setTimeout(() => location.reload(), 1000 ));
+                                    socket.on('delayed-reload', () => setTimeout(() => location.reload(), 3000 ));
                                 </script>
                             ` : ``
                 }

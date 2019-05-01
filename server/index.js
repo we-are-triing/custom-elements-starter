@@ -17,7 +17,7 @@ import socketio from 'socket.io';
 const server = Hapi.server({
     // listener: http2.createServer(options),
     port: process.env.PORT || 8000,
-    host: 'localhost'
+    host: process.env.HOST || '0.0.0.0'
 });
 
 
@@ -36,7 +36,7 @@ process.on('unhandledRejection', (err) => {
 
 if(process.env.NODE_ENV === "dev"){
     const io = socketio(server.listener);
-    var watcher = chokidar.watch(['client/**/*.*'], {
+    const watcher = chokidar.watch(['client/**/*.*'], {
       ignored: /(^|[\/\\])\../,
       persistent: true
     });
